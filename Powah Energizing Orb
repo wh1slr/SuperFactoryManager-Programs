@@ -1,0 +1,62 @@
+Name "Energizing Orb"
+ 
+Every 20 ticks do
+ 
+    -- Extraction
+        Input from Orb bottom side
+        Output to Barrel
+Forget
+ 
+    -- Ender Core
+    If Barrel has ge 1 ender_eye and Barrel has ge 1
+            dielectric_casing and Barrel has ge 1 capacitor_basic_tiny and
+            Orb has eq 0 then
+         Input 1 ender_eye,
+                1 dielectric_casing,
+                1 capacitor_basic_tiny from Barrel
+         Output retain 1 ender_eye,
+                1 dielectric_casing,
+                1 capacitor_basic_tiny to Orb
+ 
+    -- Charged Certus
+    Else If Barrel has ge 1 certus_quartz_crystal and Orb has eq 0 then
+        Input certus_quartz_crystal from Barrel
+        Output to Orb
+ 
+    -- Energized Steel
+    Else If Barrel has ge 1 iron_ingot and Barrel has ge 1 gold_ingot and
+            Orb has eq 0 then
+        Input 1 each iron_ingot, gold_ingot from Barrel
+        Output retain 1 each *ingot* to Orb
+ 
+    -- Blaze Powder
+    Else If Barrel has ge 4 blaze_powder and Orb has eq 0 then
+        Input 4 blaze_powder from Barrel
+        Output retain 4 blaze_powder to Orb
+ 
+    -- Blaze Rod
+    Else If Barrel has ge 1 blaze_rod and Orb has eq 0 then
+         Input 1 blaze_rod from Barrel
+         Output retain 1 blaze_rod to Orb
+ 
+    -- Niotic Crystal
+    Else If Barrel has ge 1 diamond and Orb has eq 0 then
+         Input 1 diamond from Barrel
+         Output retain 1 diamond to Orb
+ 
+    -- Spirited Crystal
+    Else If Barrel has ge 1 emerald and Orb has eq 0 then
+         Input 1 emerald from Barrel
+         Output retain 1 emerald to Orb
+ 
+    -- Nitro Crystal
+    Else If Barrel has ge 1 nether_star and Barrel has ge 2 redstone_block
+         and Barrel has ge 1 blazing_crystal_block and Orb has eq 0 then
+         Input 1 nether_star,
+                2 redstone_block,
+                1 blazing_crystal_block from Barrel
+         Output retain 1 nether_star,
+                2 redstone_block,
+                1 blazing_crystal_block to Orb
+    End
+End
