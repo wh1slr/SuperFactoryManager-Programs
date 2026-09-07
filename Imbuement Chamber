@@ -1,0 +1,13 @@
+Name "Imbuement Chamber"
+
+-- Input
+Every 20 ticks do
+    Input lapis_lazuli from Barrel
+    Output retain 1 to each Chamber top side
+End
+
+-- Output
+Every 20 ticks do
+    Input except lapis_lazuli from each Chamber
+    Output to Barrel
+End
