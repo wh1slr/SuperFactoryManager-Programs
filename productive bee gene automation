@@ -1,0 +1,47 @@
+productive bee gene automation
+
+Name "Productive Bee Gene Automation"
+
+Every tick do
+    Input fe:: from EnderCell
+    Output fe:: to Breeder, Incubator, Centrifuge
+End
+
+Every 20 ticks do
+    -- Input for Chorus Flowers
+    Input chorus_flower from Interface
+    Output retain 2 to each Breeder slots 3
+    Output retain 2 to each Breeder slots 4
+Forget
+    -- Input for glass bottles
+    Input glass_bottle from Interface
+    Output retain 10 to each Bottler slots 0
+Forget
+    --Input for Honey Treats
+    Input honey_treat from Interface
+    Output retain 40 to each Incubator slots 1
+Forget
+    -- Cages to be pushed back in rotation
+    Input sturdy_bee_cage from Drawer
+    Output retain 5 to each Breeder slots 0
+Forget
+    -- Cages to be taken from Gene Barrel back to drawer
+    Input sturdy_bee_cage from Gene_Barrel
+    Output to Drawer
+Forget
+    -- Take baby bees from breeder into incubator
+    Input from Breeder slots 5
+    Output to Incubator slots 0
+Forget
+    -- Take grown bees from incubator to Dispenser (Last Crushing Step)
+    Input from Incubator slots 2
+    Output to Dispenser
+Forget
+    -- Take gene samples from gene barrel to centrifuge
+    Input from Gene_Barrel
+    Output to Centrifuge slots 1
+Forget
+    --Take Separated genes from centrifuge to indexer
+    Input from Centrifuge slots 2-10
+    Output to Indexer
+End
