@@ -1,0 +1,42 @@
+Productive Bee Automation
+
+Name "Productive Bee Automation"
+    -- This Program takes output from beehives from combs to finished processing
+Every tick do
+    -- Input power to everything that needs it
+    Input fe:: from EnderCell
+    Output fe:: to Centrifuge, Furnace
+End
+
+Every 20 ticks do
+    -- Taking honey from centrifuges into casting basins
+    Input fluid:: from Centrifuge
+    Output fluid:: to Basin
+Forget
+    -- Take honey blocks from basins to Barrel1
+    Input honey_block from Basin
+    Output honey_block to Barrel1
+End
+
+Every 20 Ticks do
+    -- Taking Combs from hives to centrifuges
+    Input *Comb* from Hive
+    Output *Comb* to Centrifuge
+Forget
+    --Taking comb outputs from centrifuge to Barrel1
+    Input from Centrifuge slots 2-10
+    Output to Barrel1
+Forget
+    -- Take raw materials from barrel1 to furnace to process
+    Input *raw* from Barrel1
+    Output *raw* to Furnace
+Forget
+    -- Take finished materials from furnace to Barrel2
+    Input from Furnace bottom side slots 13
+    Input from Furnace bottom side slots 14
+    Input from Furnace bottom side slots 15
+    Input from Furnace bottom side slots 16
+    Input from Furnace bottom side slots 17
+    Input from Furnace bottom side slots 18
+    Output to Barrel2
+End
