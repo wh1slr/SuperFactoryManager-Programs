@@ -1,0 +1,40 @@
+Inscriber Automation 
+
+Name "Inscriber Automation"
+
+Every tick do
+    Input fe:: from EnderCell
+    Output fe:: to Inscriber bottom side
+End
+
+Every 20 ticks do
+    Input gold_ingot, diamond, certus_quartz_crystal from Barrel
+    Output retain 2 gold_ingot to each Gold_Inscriber slots 2
+    Output retain 2 diamond to each Diamond_Inscriber slots 2
+    Output retain 2 certus_quartz_crystal to each Certus_Inscriber slots 2
+Forget
+    Input redstone, silicon from Barrel
+    Output retain 2 silicon to each Silicon_Inscriber slots 2
+    Output retain 2 redstone to each Logic_Inscriber slots 2
+    Output retain 2 redstone to each Calculation_Inscriber slots 2
+    Output retain 2 redstone to each Engineering_Inscriber slots 2
+Forget
+    Input from Silicon_Inscriber slots 3
+    Output retain 2 to each Logic_Inscriber slots 1
+    Output retain 2 to each Calculation_Inscriber slots 1
+    Output retain 2 to each Engineering_Inscriber slots 1
+Forget
+    Input from Gold_Inscriber slots 3
+    Output retain 2 to Logic_Inscriber slots 0
+Forget
+    Input from Diamond_Inscriber slots 3
+    Output retain 2 to Engineering_Inscriber slots 0
+Forget
+    Input from Certus_Inscriber slots 3
+    Output retain 2 to Calculation_Inscriber slots 0
+Forget
+    Input from Calculation_Inscriber slots 3
+    Input from Engineering_Inscriber slots 3
+    Input from Logic_Inscriber slots 3
+    Output to Barrel
+End
